@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+Todo Management Project:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Todo Management project is a full-stack application designed to manage projects and their associated tasks (or todos). It includes the following core features:
 
-## Available Scripts
+1. Project Creation: Users can create projects with titles and view a list of all existing projects.
+2. Todo Management: Within each project, users can:
+ * Add, edit todos.
+ * Mark todos as complete or pending.
+3. Gist Export: Users can export a project summary as a GitHub gist in markdown format, which lists completed and pending todos.
 
-In the project directory, you can run:
+The backend is built with Spring Boot and includes:
+ *A REST API with endpoints for projects and todos.
+ *Basic authentication for API security.
+ *Database persistence using JPA and MySQL.
 
-### `npm start`
+The frontend uses React and provides a user interface to manage projects and todos, with Axios used for API requests. Additionally, CORS is configured for secure communication between the frontend and backend during development.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Project Setup Guide 
+This guide provides instructions on how to set up and run the backend and frontend of this project separately.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Prerequisites
 
-### `npm test`
+Java 17+
+Node.js (LTS version)
+MySQL Server
+IntelliJ IDEA (or any preferred IDE for Java)
+VS Code (or any preferred IDE for JavaScript/React)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+Backend Setup (Spring Boot + MySQL)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the Repository
+https://github.com/suraj768689/Project-todos-backend.git
+cd your-repository-folder
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Configure MySQL Database
+Open MySQL and create a database for the application.
+Update application.properties in src/main/resources with your MySQL credentials and database name.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+spring.datasource.url=jdbc:mysql://localhost:3306/your_database 
+spring.datasource.username=your_username 
+spring.datasource.password=your_password 
+spring.jpa.hibernate.ddl-auto=update
 
-### `npm run eject`
+4. Run the Backend
+Open the backend folder in IntelliJ IDEA.
+Navigate to the main application class (e.g., TodoManagerApplication.java) and run it.
+The backend server will start on http://localhost:8090.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Frontend Setup (React)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1.Clone the Repository 
+https://github.com/suraj768689/Projects-todos-frontend.git 
+cd your-repository-folder
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Install Dependencies
+npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. Configure API Base URL
 
-## Learn More
+ * Open src/service/apiService.js and ensure the API_URL matches your backend URL: 
+const API_URL = 'http://localhost:8090/api';
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Run the Frontend
+npm start
+Access the frontend at http://localhost:3000.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+PROJECT OUTPUT:
 
-### Code Splitting
+1. Project list page with list of project name and add new project button. 
+https://drive.google.com/file/d/1dPeQ5KO7FDQH2izrDQXLkq4mcvmkQ9ca/view?usp=drive_link
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Project Form to add new poroject. 
+https://drive.google.com/file/d/1cjXnC_67-Dv6Nr2yVkAyntNHLqaGsCP1/view?usp=drive_link
 
-### Analyzing the Bundle Size
+3. Todos of a particular project(project details page) with summary, pendind and completed task. 
+https://drive.google.com/file/d/1qMFkLRbM8zeiSwLxIw3TEz5VdwIqkRcw/view?usp=drive_link
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4. Todo form to add new todo of a particular project through project id. 
+https://drive.google.com/file/d/1XdbzjYWE7-RTcWGzEiLKAsT9AEoQIZ0M/view?usp=drive_link
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+5. Edit form of a todo of a project through todo id. 
+https://drive.google.com/file/d/1NZiaHOTmYyZYxw2Vf9XppNb-53pFxj6s/view?usp=drive_link
